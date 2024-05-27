@@ -19,7 +19,7 @@ export async function POST(req, res) {
         }
     });
     const mailOptions = {
-        from: `Malay Kumar<${process.env.USER}>`,
+        from: `Malay Kumar<${USER}>`,
         to: email,
         subject: 'Thank You for Your Interest',
         text: `
