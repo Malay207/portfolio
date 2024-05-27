@@ -3,31 +3,203 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
+  --foreground-rgb: 18, 18, 18;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: 255, 255, 255, 0.87;
+    --background-start-rgb: 18, 18, 18;
+    --background-end-rgb: 18, 18, 18;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+::-webkit-scrollbar {
+  width: 0px;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+body {
+
+  color: rgba(var(--foreground-rgb));
+  background: linear-gradient(to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+
+  /* className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert" */
+}
+
+body p {
+  color: #b2bbd5e6;
+}
+
+.header {
+  background-color: rgb(18, 18, 18);
+}
+
+.navbar {
+  animation: navpop 0.5s cubic-bezier(0.18, 0.89, 0.49, 1.06);
+  ;
+}
+
+.nav li:hover {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.6), 0 0 24px rgba(255, 255, 255, 0.4);
+}
+
+.header-mobileview {
+  color: black;
+  align-items: center;
+  background-color: #fff;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  transition: all .3s ease-in-out;
+  width: 100%;
+  z-index: 300;
+}
+
+.header-mobileview ul li {
+  padding: 10px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.cross {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.herosection {
+  height: 85vh;
+
+}
+
+.hero-content {
+  animation: popupleft 0.8s cubic-bezier(0.18, 0.89, 0.49, 1.06);
+}
+
+.hero-profileimage {
+  -webkit-animation: morph 8s ease-in-out infinite;
+  animation: morph 8s ease-in-out infinite;
+  background-image: url('./heroimg.png');
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 3px solid #fbfcff;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  height: 20rem;
+  position: relative;
+  transition: all 1s ease-in-out;
+  width: 20rem;
+}
+
+.projects .tag span {
+  box-shadow: rgb(55, 54, 50) 0px -0.5rem 0px inset;
+  transition: box-shadow 0.3s ease-out 0s;
+}
+
+.contact-platform .connection1 .profileimg {
+  width: 100%;
+  max-width: 8.75rem;
+  height: 8.75rem;
+  background-image: url("./heroimg.png");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 3px solid #fbfcff;
+  border-radius: 50%;
+}
+
+.contact-platform .connection1 .connection-details a:hover {
+  color: #147efb
+}
+
+@keyframes morph {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
+
+@keyframes popupleft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+}
+
+@keyframes popupabout {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes navpop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+.profilelink a:hover {
+  color: #0a66c2;
+}
+
+@media only screen and (max-width:1024px) {
+  .herosection {
+    height: fit-content;
+  }
+
+  .hero-profileimage {
+    margin-bottom: 50px;
+    width: 20rem;
+    height: 20rem;
+  }
+
+
+}
+
+@media only screen and (max-width:524px) {
+  .herosection {
+    height: fit-content;
+  }
+
+  .hero-profileimage {
+    margin-bottom: 50px;
+    width: 15rem;
+    height: 15rem;
   }
 }

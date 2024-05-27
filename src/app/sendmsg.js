@@ -1,0 +1,61 @@
+"use client"
+import { useState } from "react"
+import { ToastContainer,toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+export function SendMsg() {
+    const notify = () => toast("Thank You!");
+    const [data, setdata] = useState({
+        name: "",
+        email: "",
+        message: ""
+    })
+    const handlechange = (e) => {
+        const { name, value } = e.target;
+        setdata((prev) => {
+            return {
+                ...prev,
+                [name]: value
+            }
+        })
+    }
+    const handlesubmit = async () => {
+        const res = await fetch("http://localhost:3000/api/sendmail", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ name: data.name, email: data.email, message: data.message })
+
+        });
+        const resdata = await res.json();
+        console.log(resdata.sucess);
+        setdata({
+            name: "",
+            email: "",
+            message: ""
+        })
+
+    }
+
+    return (
+        <>
+            <form>
+                <input type="text" name="name" value={data.name} onChange={handlechange} placeholder="Name" className="border-2 border-gray-200 rounded-3xl p-3 w-full my-7 text-black" required minLength={3} />
+
+                <input type="email" name="email" value={data.email} onChange={handlechange} placeholder="Email" className="border-2 border-gray-200 rounded-3xl p-3 w-full my-7 text-black" required/>
+
+                <textarea placeholder="Message" name="message" value={data.message} onChange={handlechange} className="border-2 border-gray-200 rounded-3xl p-3 w-full my-7 text-black" cols="5" rows="5" required minLength={5}></textarea>
+
+                <button className="text-xl border-2 border-white flex items-center  rounded-3xl px-8 py-1.5 hover:bg-white hover:text-black " onClick={(e) => {
+                    e.preventDefault();
+                    handlesubmit();
+                    notify();
+                }} disabled={data.name === "" || data.email === "" || data.message === "" ? true : false}>
+
+                    <span className="">submit</span>
+                </button>
+                <ToastContainer/>
+            </form>
+        </>
+    )
+}

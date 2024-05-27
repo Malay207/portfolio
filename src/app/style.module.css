@@ -1,0 +1,8 @@
+.sidebar_off{
+    left:-100% !important;
+}
+.sidebar_on{
+    left:0!important;
+   
+}
+
