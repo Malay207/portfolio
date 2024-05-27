@@ -197,7 +197,7 @@ export default function Home() {
 
       <section id="project" className="projects lg:mx-20 mx:10 mt-20 mb-0">
         <h3 className="text-gray-100 text-4xl mb-5  font-extrabold lg:text-start text-center">Project</h3>
-        <div className="allproject lg:block flex overflow-x-scroll ">
+        <div className="allproject lg:block flex overflow-x-scroll overflow-y-hidden ">
           {
             projectdata.map((data, index) => {
               return (
