@@ -2,6 +2,7 @@
 import { useState } from "react"
 import { ToastContainer,toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
+  import { API_URL } from "@/config/constant";
 export function SendMsg() {
     const notify = () => toast("Thank You!");
     const [data, setdata] = useState({
@@ -19,7 +20,7 @@ export function SendMsg() {
         })
     }
     const handlesubmit = async () => {
-        const res = await fetch("http://localhost:3000/api/sendmail", {
+        const res = await fetch(`${API_URL}/api/sendmail`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

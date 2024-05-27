@@ -25,7 +25,7 @@ export default function Home() {
   const item = {
     hidden: { opacity: 0, y: 100 },
     show: { opacity: 1, y: 0 },
-    viewport: { once: true }
+    
   }
   const [sidebaropen, setsidebaropen] = useState(false);
   return (
@@ -185,7 +185,7 @@ export default function Home() {
             skillimage.map((img, index) => {
               return (
                 <motion.div key={index} className="skill border-2 border-gray-200 rounded-lg sm:mx-0 mx-3.5 flex items-start p-2.5  hover:scale-105"
-                  variants={item} >
+                  variants={item} viewport={{once:"true"}}>
                   <Image src={img.src} alt="img..." height={0} width={0} className="me-1.5" style={{ width: '25px', height: '25px' }} />
                   {img.name}
                 </motion.div>
