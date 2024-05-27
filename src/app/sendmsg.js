@@ -20,6 +20,8 @@ export function SendMsg() {
         })
     }
     const handlesubmit = async () => {
+        console.log("click");
+
         if(!API_URL){
             return null;
         }

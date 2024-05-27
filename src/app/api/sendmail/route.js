@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import dns from 'dns';
+import { REFRESHTOKEN,USER, CLIENTSECRET,CLIENTID} from "@/config/constant";
 export async function POST(req, res) {
     let payload = await req.json();
     let { name, email, message } = payload;
-    let sucess;
+    let sucess=true;
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         host: "smtp.gmail.email",
@@ -12,10 +12,10 @@ export async function POST(req, res) {
         secure: true,
         auth: {
             type: 'OAuth2',
-            user: process.env.USER,
-            clientId: process.env.CLIENTID,
-            clientSecret: process.env.CLIENTSECRET,
-            refreshToken: process.env.REFRESHTOKEN
+            user: USER,
+            clientId:CLIENTID,
+            clientSecret:CLIENTSECRET,
+            refreshToken:REFRESHTOKEN
         }
     });
     const mailOptions = {
@@ -29,8 +29,8 @@ export async function POST(req, res) {
         `
     };
     const mailOptions2 = {
-        from: `Malay Kumar<${process.env.USER}>`,
-        to: process.env.USER,
+        from: `Malay Kumar<${USER}>`,
+        to:USER,
         subject: `Message from ${name}`,
         text: `
         Sender ${name},
@@ -43,6 +43,7 @@ export async function POST(req, res) {
                 if (error) {
                     console.log(error);
                     sucess = false;
+                    return NextResponse.json({ sucess: false }, { status: 200 });
                 } else {
                     console.log('Email sent: ' + info.response);
                     sucess = true;
