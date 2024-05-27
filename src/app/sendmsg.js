@@ -20,6 +20,9 @@ export function SendMsg() {
         })
     }
     const handlesubmit = async () => {
+        if(!API_URL){
+            return null;
+        }
         const res = await fetch(`${API_URL}/api/sendmail`, {
             method: "POST",
             headers: {
