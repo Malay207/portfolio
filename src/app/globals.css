@@ -11,8 +11,6 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255, 0.87;
-    --background-start-rgb: 18, 18, 18;
-    --background-end-rgb: 18, 18, 18;
   }
 }
 
@@ -23,9 +21,7 @@
 body {
 
   color: rgba(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  background: linear-gradient(to bottom,rgb(18,18,18),rgb(18,18,18))
 
   /* className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert" */
 }
