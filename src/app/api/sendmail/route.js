@@ -16,7 +16,8 @@ export async function POST(req, res) {
             clientId:CLIENTID,
             clientSecret:CLIENTSECRET,
             refreshToken:REFRESHTOKEN
-        }
+        },
+        
     });
     const mailOptions = {
         from: `Malay Kumar<${USER}>`,
@@ -39,26 +40,32 @@ export async function POST(req, res) {
            ${message}
         `
     };
-            transporter.sendMail(mailOptions, function (error, info) {
-                if (error) {
-                    console.log(error);
-                    sucess = false;
-                    return NextResponse.json({ sucess: false }, { status: 200 });
-                } else {
-                    console.log('Email sent: ' + info.response);
-                    sucess = true;
+    await new Promise((resolve,reject)=>{
+        transporter.sendMail(mailOptions, function (error, info) {
+            if (error) {
+                console.log(error);
+                reject(err)
+                return NextResponse.json({ sucess: false }, { status: 200 });
+            } else {
+                console.log('Email sent: ' + info.response);
+                sucess = true;
+                resolve(info);
 
-                }
-            });
-            transporter.sendMail(mailOptions2, function (error, info) {
-                if (error) {
-                    console.log(error);
-                } else {
-                    console.log('Email sent:' + info.response);
-                }
-            });
+            }
+        });
+        transporter.sendMail(mailOptions2, function (error, info) {
+            if (error) {
+                console.log(error);
+                reject(err)
+                return NextResponse.json({ Sucess: false }, { status: 200 });
+            } else {
+                console.log('Email sent:' + info.response);
+                resolve(info);
+            }
+        });
 
-
+    })
+    
             
     return NextResponse.json({ sucess }, { status: 200 });
 };
