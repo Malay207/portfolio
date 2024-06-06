@@ -20,7 +20,7 @@ export function SendMsg() {
         })
     }
     const handlesubmit = async () => {
-        console.log("click");
+        
 
         if(!API_URL){
             return null;
@@ -53,6 +53,7 @@ export function SendMsg() {
                 <textarea placeholder="Message" name="message" value={data.message} onChange={handlechange} className="border-2 border-gray-200 rounded-3xl p-3 w-full my-7 text-black" cols="5" rows="5" required minLength={5}></textarea>
 
                 <button className="text-xl border-2 border-white flex items-center  rounded-3xl px-8 py-1.5 hover:bg-white hover:text-black " onClick={(e) => {
+                    console.log("hello");
                     e.preventDefault();
                     handlesubmit();
                     notify();

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import { REFRESHTOKEN,USER, CLIENTSECRET,CLIENTID} from "@/config/constant";
+import { REFRESHTOKEN,USER, CLIENTSECRET,CLIENTID, Pass} from "@/config/constant";
 export async function POST(req, res) {
     let payload = await req.json();
     let { name, email, message } = payload;
@@ -11,11 +11,8 @@ export async function POST(req, res) {
         port: 587,
         secure: false,
         auth: {
-            type: 'OAuth2',
             user: USER,
-            clientId:CLIENTID,
-            clientSecret:CLIENTSECRET,
-            refreshToken:REFRESHTOKEN
+            pass:Pass
         },
         
     });
@@ -44,7 +41,7 @@ export async function POST(req, res) {
         transporter.sendMail(mailOptions, function (error, info) {
             if (error) {
                 console.log(error);
-                reject(err)
+                reject(error)
                 return NextResponse.json({ sucess: false }, { status: 200 });
             } else {
                 console.log('Email sent: ' + info.response);
@@ -56,7 +53,7 @@ export async function POST(req, res) {
         transporter.sendMail(mailOptions2, function (error, info) {
             if (error) {
                 console.log(error);
-                reject(err)
+                reject(error)
                 return NextResponse.json({ Sucess: false }, { status: 200 });
             } else {
                 console.log('Email sent:' + info.response);
