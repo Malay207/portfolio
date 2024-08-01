@@ -117,7 +117,10 @@ export default function Home() {
             <Link className="mr-3" target="_blank" href="https://www.linkedin.com/in/malaykumarbehera/"><Linkedin /></Link>
             <Link className="ml-3" target="_blank" href="https://github.com/Malay207/Malay-Kumar.git"><Github /></Link>
           </span>
-          <button className="my-8 border-2 border-white	rounded-3xl p-3 hover:bg-white hover:text-black "><Link href="https://drive.google.com/file/d/16k6knLUKYKW2Ye-VwPEuuuuzGJzMa9rG/view?usp=sharing" target="_blank">DOWNLOAD CV &rarr;</Link></button>
+          <div>
+          <button className="my-8 me-7 border-2 border-white	rounded-3xl p-3 hover:bg-white hover:text-black "><Link href="https://drive.google.com/file/d/16k6knLUKYKW2Ye-VwPEuuuuzGJzMa9rG/view?usp=sharing" target="_blank">DOWNLOAD CV &rarr;</Link></button>
+          <button className="my-8 border-2 border-white	rounded-3xl px-5 py-3 hover:bg-white hover:text-black "><Link href="https://www.fiverr.com/malaykumar2002" target="_blank">HIRE ME</Link></button>
+          </div>
         </div>
         <div className="hero-profileimage"></div>
 

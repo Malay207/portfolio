@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import { REFRESHTOKEN,USER, CLIENTSECRET,CLIENTID, Pass} from "@/config/constant";
+import { USER, Pass} from "@/config/constant";
 export async function POST(req, res) {
     let payload = await req.json();
     let { name, email, message } = payload;
