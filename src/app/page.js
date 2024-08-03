@@ -118,7 +118,7 @@ export default function Home() {
             <Link className="ml-3" target="_blank" href="https://github.com/Malay207/Malay-Kumar.git"><Github /></Link>
           </span>
           <div>
-          <button className="my-8 me-7 border-2 border-white	rounded-3xl p-3 hover:bg-white hover:text-black "><Link href="https://drive.google.com/file/d/16k6knLUKYKW2Ye-VwPEuuuuzGJzMa9rG/view?usp=sharing" target="_blank">DOWNLOAD CV &rarr;</Link></button>
+          <button className="my-8 me-7 border-2 border-white	rounded-3xl p-3 hover:bg-white hover:text-black "><Link href="https://drive.google.com/file/d/1oL9RZm5_1aB7vFcUsgqbxLcANFjHxlfs/view?usp=sharing" target="_blank">DOWNLOAD CV &rarr;</Link></button>
           <button className="my-8 border-2 border-white	rounded-3xl px-5 py-3 hover:bg-white hover:text-black "><Link href="https://www.fiverr.com/malaykumar2002" target="_blank">HIRE ME</Link></button>
           </div>
         </div>
@@ -299,7 +299,7 @@ export default function Home() {
         <footer>
           <div className="part1 flex justify-between items-center sm:mx-14 mx-6 my-6">
             <h3 className="font-extrabold text-lg"><Link href="#"> Malay Kumar</Link></h3>
-            <button className=" hover:text-sky-500 "><Link href="https://drive.google.com/file/d/16k6knLUKYKW2Ye-VwPEuuuuzGJzMa9rG/view?usp=sharing" target="_blank">DOWNLOAD CV</Link></button>
+            <button className=" hover:text-sky-500 "><Link href="https://drive.google.com/file/d/1oL9RZm5_1aB7vFcUsgqbxLcANFjHxlfs/view?usp=sharing" target="_blank">DOWNLOAD CV</Link></button>
           </div>
           <p className="text-center mb-6">
             © {new Date().getFullYear()} Malay Kumar. All rights reserved.
