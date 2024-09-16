@@ -8,7 +8,8 @@ import Image from "next/image";
 import gif from "./wave.gif"
 import aboutimg from "./download.png";
 import projectdata from "./project";
-import skillimage from "./image";
+import { Frontend, Backend, Tools } from "./image";
+import Rendercolumn from "./Render";
 import { Linkedin, Github, Mainlink, Instagram } from "./svg";
 import { SendMsg } from "./sendmsg";
 import { motion } from "framer-motion";
@@ -25,7 +26,7 @@ export default function Home() {
   const item = {
     hidden: { opacity: 0, y: 100 },
     show: { opacity: 1, y: 0 },
-    
+
   }
   const [sidebaropen, setsidebaropen] = useState(false);
   return (
@@ -118,8 +119,8 @@ export default function Home() {
             <Link className="ml-3" target="_blank" href="https://github.com/Malay207/Malay-Kumar.git"><Github /></Link>
           </span>
           <div>
-          <button className="my-8 me-7 border-2 border-white	rounded-3xl p-3 hover:bg-white hover:text-black "><Link href="https://drive.google.com/file/d/1oL9RZm5_1aB7vFcUsgqbxLcANFjHxlfs/view?usp=sharing" target="_blank">DOWNLOAD CV &rarr;</Link></button>
-          <button className="my-8 border-2 border-white	rounded-3xl px-5 py-3 hover:bg-white hover:text-black "><Link href="https://www.fiverr.com/malaykumar2002" target="_blank">HIRE ME</Link></button>
+            <button className="my-8 me-7 border-2 border-white	rounded-3xl p-3 hover:bg-white hover:text-black "><Link href="https://drive.google.com/file/d/1oL9RZm5_1aB7vFcUsgqbxLcANFjHxlfs/view?usp=sharing" target="_blank">DOWNLOAD CV &rarr;</Link></button>
+            <button className="my-8 border-2 border-white	rounded-3xl px-5 py-3 hover:bg-white hover:text-black "><Link href="https://www.fiverr.com/malaykumar2002" target="_blank">HIRE ME</Link></button>
           </div>
         </div>
         <div className="hero-profileimage"></div>
@@ -166,9 +167,11 @@ export default function Home() {
           }}
         >
           <h3 className="text-gray-100 text-4xl font-extrabold">About Me</h3>
-          <p className="mt-5 text-lg">Hello! My name is <span style={{ color: "#c770f0" }}>Malay Kumar Behera</span>, and I am a passionate software developer. When I started my career, I had limited knowledge of coding. However, I began learning from YouTube and wrote some small programs, which sparked my interest in the field. Since then, I have dedicated significant effort to mastering various programming languages, including JavaScript, Python, Java, and C. Additionally, I have expertise in databases such as MongoDB, SQL, and in-memory databases like Redis.
+          <p className="mt-5 text-lg text-justify">Hello! My name is <span style={{ color: "#c770f0" }}>Malay Kumar Behera</span>, and I am a passionate software developer. When I started my career, I had limited knowledge of coding. However, I began learning from YouTube and wrote some small programs, which sparked my interest in the field. Since then, I have dedicated significant effort to mastering various programming languages, including JavaScript, Python, Java, and C. Additionally, I have expertise in databases such as MongoDB, SQL, and in-memory databases like Redis.
+            <br />
             <br />
             Currently, my primary stack is MERN, complemented by Tailwind CSS, TypeScript, and Flutter for mobile/iOS applications and blockchain development. I am always eager to learn new technologies and expand my skill set.
+            <br />
             <br />
             In my spare time, I enjoy playing cricket, listening to music, exploring new technologies, working from home, and continually learning new skills.
           </p>
@@ -179,22 +182,42 @@ export default function Home() {
 
       <section className="skills sm:my-20 my-16 sm:mx-20  sm:block flex flex-col items-center">
         <h3 className="text-gray-100 text-4xl mb-5  font-extrabold md:text-start text-center">Skills</h3>
-        <motion.div className="all-skills  justify-center w-full grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-x-4 gap-y-8 "
+        <motion.div className="all-skills m-auto justify-center md:w-full w-4/5 grid md:grid-cols-2 grid-cols-1  gap-x-4 gap-y-8 "
           variants={container}
           initial="hidden"
           whileInView="show"
         >
-          {
-            skillimage.map((img, index) => {
-              return (
-                <motion.div key={index} className="skill border-2 border-gray-200 rounded-lg sm:mx-0 mx-3.5 flex items-start p-2.5  hover:scale-105"
-                  variants={item} viewport={{once:"true"}}>
-                  <Image src={img.src} alt="img..." height={0} width={0} className="me-1.5" style={{ width: '25px', height: '25px' }} />
-                  {img.name}
-                </motion.div>
-              )
-            })
-          }
+          <motion.div className=" Skill w-full h-full border-2 border-slate-400 rounded-lg "
+            variants={item} viewport={{ once: "true" }} id="frontend">
+              <h2 className="text-center sm:text-3xl text-2xl mt-2 font-bold" style={{color:"#555"}}>Frontend Development</h2>
+              <div  className="skill_item flex items-start justify-evenly">
+                {
+                  Rendercolumn(Frontend)
+                }
+                    
+                    </div>
+          </motion.div>
+          <motion.div className="Skill w-full h-full border-2 border-slate-400 rounded-lg"
+            variants={item} viewport={{ once: "true" }} id="backend">
+              <h2 className="text-center sm:text-3xl text-2xl mt-2 font-bold" style={{color:"#555"}}>Backend Development</h2>
+              <div  className="skill_item flex items-start justify-evenly">
+                {
+                  Rendercolumn(Backend)
+                }
+                    
+                    </div>
+          </motion.div>
+          <motion.div className="Skill w-full h-full border-2 border-slate-400 rounded-lg"
+            variants={item} viewport={{ once: "true" }} id="tools">
+              <h2 className="text-center sm:text-3xl text-2xl mt-2 font-bold" style={{color:"#555"}}>Tools/Devops</h2>
+              <div  className="skill_item flex items-start justify-evenly">
+                {
+                  Rendercolumn(Tools)
+                }
+                    
+                    </div>
+          </motion.div>
+
         </motion.div>
       </section>
 
@@ -225,7 +248,7 @@ export default function Home() {
                   <div className="proj-content sm:px-10 px-7 lg:w-1/2">
                     <div className="text-sm tracking-wider font-bold mb-3.5">{data.head}</div>
                     <h2 className="text-2xl font-extrabold tracking-wider">{data.title}</h2>
-                    <p className="mb-5 sm:text-lg">
+                    <p className="mb-5 sm:text-lg text-justify">
                       {data.content}
                     </p>
                     <div className="tag mb-3.5  ">

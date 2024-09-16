@@ -199,3 +199,10 @@ body p {
   }
   
 }
+@media only screen and (max-width:400px) {
+  .skill_item{
+    flex-direction: column;
+    align-items: center;
+  }
+  
+}

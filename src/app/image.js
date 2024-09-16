@@ -16,7 +16,11 @@ import docker from "./skillimage/docker.png"
 import tailwind from "./skillimage/tailwind.png"
 import github from "./skillimage/github.png"
 import java from "./skillimage/java.png"
-const skillimage=[
+import linux from "./skillimage/Linux.png"
+
+
+
+const Frontend=[
     {src:html,name:"HTML5"},
     {src:css,name:"CSS3"},
     {src:js,name:"JavaScript"},
@@ -24,16 +28,22 @@ const skillimage=[
     {src:tailwind,name:"TailwindCss"},
     {src:react,name:"React.js"},
     {src:next,name:"Next.js"},
+]
+const Backend=[
     {src:node,name:"Node.js"},
     {src:express,name:"Express.js"},
+    {src:go,name:"Golang"},
     {src:redux,name:"Redux"},
     {src:mongo,name:"MongoDB"},
-    {src:firebase,name:"Firebase"},
-    {src:mysql,name:"Mysql"},
     {src:redis,name:"Redis"},
-    {src:go,name:"Golang"},
-    {src:java,name:"Java"},
+    {src:mysql,name:"Mysql"},
+    {src:firebase,name:"Firebase"},
+ 
+]
+const Tools=[
     {src:docker,name:"Docker"},
     {src:github,name:"Git/GitHub"},
-]
-export default skillimage;
+    {src:linux,name:"Linux"},
+];
+
+export {Frontend,Backend,Tools};
