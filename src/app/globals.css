@@ -76,7 +76,7 @@ body p {
 
 .hero-profileimage {
   
-  background-image: url('./heroimg.png');
+  background-image: url('./profileimg.png');
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
