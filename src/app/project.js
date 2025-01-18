@@ -2,6 +2,7 @@ import proj1 from "./pojectimage/proj1.png"
 import proj2 from "./pojectimage/proj2.png"
 import proj3 from "./pojectimage/proj3.png"
 import proj4 from "./pojectimage/proj4.png"
+import proj5 from "./pojectimage/proj5.png"
 
 const projectdata = [
     {
@@ -39,6 +40,16 @@ const projectdata = [
         stack: ["Next.js", "TypeScript", "MongoDB", "Clerk", "Tailwind CSS"],
         git: "https://github.com/Malay207/Goggins-ai_coach.git",
         deploy: "https://goggins-ai-coach-ten.vercel.app/"
+    },
+    {
+        head: "📈 PRICE TRACKER EXTENSION",
+        title: "SMART SHOPPING COMPANION",
+        img: proj5, // Replace with your image variable
+        content: "The Price Tracker Extension is a Chrome tool designed to help users track product prices on Amazon, Flipkart, and Ajio. Built with React.js, Puppeteer, Node.js, and MongoDB, it allows users to monitor price changes effortlessly. With secure authentication and real-time notifications, this extension enhances online shopping efficiency and ensures you never miss a deal.",
+        stack: ["React.js", "Puppeteer", "Node.js", "MongoDB", "CSS"],
+        git: "https://github.com/Malay207/Price-Tracker-Extention.git",
+        deploy: "https://chromewebstore.google.com/detail/price-traker/kajpkjelpafpccdmmldloikackepdphd?hl=en&authuser=0"
+
     }
 ];
 
