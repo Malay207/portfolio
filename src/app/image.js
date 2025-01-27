@@ -17,6 +17,7 @@ import tailwind from "./skillimage/tailwind.png"
 import github from "./skillimage/github.png"
 import java from "./skillimage/java.png"
 import linux from "./skillimage/Linux.png"
+import figma from "./skillimage/figma.png"
 
 
 
@@ -44,6 +45,7 @@ const Tools=[
     {src:docker,name:"Docker"},
     {src:github,name:"Git/GitHub"},
     {src:linux,name:"Linux"},
+    {src:figma,name:"Figma"},
 ];
 
 export {Frontend,Backend,Tools};

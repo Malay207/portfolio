@@ -3,6 +3,7 @@ import proj2 from "./pojectimage/proj2.png"
 import proj3 from "./pojectimage/proj3.png"
 import proj4 from "./pojectimage/proj4.png"
 import proj5 from "./pojectimage/proj5.png"
+import proj6 from "./pojectimage/proj6.png"
 
 const projectdata = [
     {
@@ -50,6 +51,15 @@ const projectdata = [
         git: "https://github.com/Malay207/Price-Tracker-Extention.git",
         deploy: "https://chromewebstore.google.com/detail/price-traker/kajpkjelpafpccdmmldloikackepdphd?hl=en&authuser=0"
 
+    },
+    {
+        "head": "🎄 CHRISTMAS HOLIDAY WEBSITE",
+        "title": "FESTIFY",
+        "img": proj6,
+        "content": "Festify is a Christmas-themed holiday website that brings festive joy and interactivity. Users can authenticate themselves, explore events, and create their own. The platform allows users to add events, send holiday wishes to friends, participate in the fun Secret Santa game, and share event participation links with friends to join the holiday spirit.",
+        "stack": ["React.js", "Node.js", "Express.js", "MongoDB", "Json Web Token", "Clerk Authentication", "Firebase"],
+        "git": "https://github.com/Malay207/Festify.git",
+        "deploy": "https://festify-6mgner911-malay207s-projects.vercel.app/"
     }
 ];
 
