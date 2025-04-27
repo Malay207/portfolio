@@ -6,13 +6,18 @@ import style from "./style.module.css"
 import { useState } from "react";
 import Image from "next/image";
 import gif from "./wave.gif"
-import aboutimg from "./download.png";
+import aboutimg from "./download.gif";
 import projectdata from "./project";
 import { Frontend, Backend, Tools } from "./image";
 import Rendercolumn from "./Render";
 import { Linkedin, Github, Mainlink, Instagram } from "./svg";
 import { SendMsg } from "./sendmsg";
 import { motion } from "framer-motion";
+import reactimage from "./skillimage/react.png";
+import nodeimage from "./skillimage/node.png";
+import mongodbimahe from "./skillimage/mongo.png";
+import dockerimage from "./skillimage/docker.png";
+import solidityimage from "./skillimage/solidity.png";
 export default function Home() {
   const container = {
     hidden: { opacity: 0 },
@@ -112,8 +117,8 @@ export default function Home() {
           }}>Malay Kumar</span></h1>
           <h2 className=" mt-2 font-medium	sm:text-3xl text-2xl text-gray-100">I&apos;m a <span className="font-bold">Full Stack  Developer</span></h2>
 
-          <p className="mt-8 lg:mx-0 mx-8 text-gray-100" style={{ color: "#555" }}>Background in Computer Science. Passion for Tech. India Based.</p>
-          <p className="mt-2 lg:mx-0 mx-8 text-gray-100" style={{ color: "#555" }}>Currently Pursuing Bachlor&apos;s Degree in Computer Science and Technology</p>
+          <p className="mt-8 lg:mx-0 mx-8 text-gray-100" style={{ color: "#ffffff" }}>Background in Computer Science. Passion for Tech. India Based.</p>
+          <p className="mt-2 lg:mx-0 mx-8 text-gray-100" style={{ color: "#ffffff" }}>Currently Pursuing Bachlor&apos;s Degree in Computer Science and Technology</p>
           <span className="flex mt-5 items-center profilelink justify-center lg:justify-start">
             <Link className="mr-3" target="_blank" href="https://www.linkedin.com/in/malaykumarbehera/"><Linkedin /></Link>
             <Link className="ml-3" target="_blank" href="https://github.com/Malay207/Malay-Kumar.git"><Github /></Link>
@@ -127,27 +132,56 @@ export default function Home() {
 
       </section>
       <section id="about" className="aboutsection flex items-center  justify-evenly lg:flex-row flex-col ">
-        <motion.div className="about-image my-14 mx-10"
-          initial={{
-            opacity: 0,
-          }}
-          whileInView={{
-            opacity: 1,
-
-          }}
+        <motion.div
+          className="about-image relative my-14 mx-10"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           transition={{
             duration: 0.4,
             ease: "backInOut",
-            delay: 0.50
-
+            delay: 0.5
           }}
-          viewport={{
-            once: true
-          }}
+          viewport={{ once: true }}
         >
-          <Image alt="img..." src={aboutimg} height={0} width={0} style={{ width: '400px', height: '400px' }} />
-        </motion.div>
+          {/* Floating Bubbles */}
+          {[
+            { left: "16%", top: "60%", img: reactimage },
+            { left: "36%", top: "36%", img: nodeimage },
+            { left: "65%", top: "75%", img: mongodbimahe },
+            { left: "18%", top: "5%", img: dockerimage },
+            { left: "74%", top: "27%", img: solidityimage },
+          ].map((pos, i) => (
+            <motion.div
+              key={i}
+              className="bubble absolute w-12 h-12 sm:w-20 sm:h-20 rounded-full border-2 bg-slate-900 border-slate-900"
+              style={{
+                top: pos.top,
+                left: pos.left,
+              }}
+              initial={{ y: 10 }}
+              animate={{ y: [10, -10, 10] }}
+              transition={{
+                duration: Math.random() * 2 + 1, // Random duration between 1-3s
+                ease: "easeInOut",
+                repeat: Infinity,
+                repeatType: "mirror",
+                delay: Math.random() * 1.5
+              }}
 
+            >
+              {/* Add Image Here */}
+              <Image
+                src={pos.img} // Replace with your actual image path
+                alt="Bubble"
+                layout="fill" // Makes it cover the div
+                objectFit="contain" // Ensures it stays inside
+              />
+            </motion.div>
+          ))}
+
+          {/* Profile Image */}
+          <Image alt="img..." src={aboutimg} height={0} width={0} />
+        </motion.div>
         <motion.div className="about-content lg:w-1/2 mx-10 lg:mx-0 text-center lg:text-start"
           initial={{
             opacity: 0,
@@ -167,7 +201,7 @@ export default function Home() {
           }}
         >
           <h3 className="text-gray-100 text-4xl font-extrabold">About Me</h3>
-          <p className="mt-5 text-lg text-justify">Hello! My name is <span style={{ color: "#c770f0" }}>Malay Kumar Behera</span>, and I am a passionate software developer. When I started my career, I had limited knowledge of coding. However, I began learning from YouTube and wrote some small programs, which sparked my interest in the field. Since then, I have dedicated significant effort to mastering various programming languages, including JavaScript, Python, Java, and C. Additionally, I have expertise in databases such as MongoDB, SQL, and in-memory databases like Redis.
+          <p className="mt-5 text-lg text-justify lg:me-5">Hello! My name is <span style={{ color: "#c770f0" }}>Malay Kumar Behera</span>, and I am a passionate software developer. When I started my career, I had limited knowledge of coding. However, I began learning from YouTube and wrote some small programs, which sparked my interest in the field. Since then, I have dedicated significant effort to mastering various programming languages, including JavaScript, Python, Java, and C. Additionally, I have expertise in databases such as MongoDB, SQL, and in-memory databases like Redis.
             <br />
             <br />
             Currently, my primary stack is MERN, complemented by Tailwind CSS, TypeScript, and Flutter for mobile/iOS applications and blockchain development. I am always eager to learn new technologies and expand my skill set.
@@ -181,7 +215,7 @@ export default function Home() {
       </section>
 
       <section className="skills sm:my-20 my-16 sm:mx-20  sm:block flex flex-col items-center">
-        <h3 className="text-gray-100 text-4xl mb-5  font-extrabold md:text-start text-center">Skills</h3>
+        <h3 className="text-gray-100 text-4xl mb-5  font-extrabold text-center">SKILLS</h3>
         <motion.div className="all-skills m-auto justify-center md:w-full w-4/5 grid md:grid-cols-2 grid-cols-1  gap-x-4 gap-y-8 "
           variants={container}
           initial="hidden"
@@ -189,45 +223,45 @@ export default function Home() {
         >
           <motion.div className=" Skill w-full h-full border-2 border-slate-400 rounded-lg "
             variants={item} viewport={{ once: "true" }} id="frontend">
-              <h2 className="text-center sm:text-3xl text-2xl mt-2 font-bold" style={{color:"#555"}}>Frontend Development</h2>
-              <div  className="skill_item flex items-start justify-evenly">
-                {
-                  Rendercolumn(Frontend)
-                }
-                    
-                    </div>
+            <h2 className="text-center sm:text-3xl text-2xl mt-2 font-bold" style={{ color: "#ffffff" }}>Frontend Development</h2>
+            <div className="skill_item flex items-start justify-evenly">
+              {
+                Rendercolumn(Frontend)
+              }
+
+            </div>
           </motion.div>
           <motion.div className="Skill w-full h-full border-2 border-slate-400 rounded-lg"
             variants={item} viewport={{ once: "true" }} id="backend">
-              <h2 className="text-center sm:text-3xl text-2xl mt-2 font-bold" style={{color:"#555"}}>Backend Development</h2>
-              <div  className="skill_item flex items-start justify-evenly">
-                {
-                  Rendercolumn(Backend)
-                }
-                    
-                    </div>
+            <h2 className="text-center sm:text-3xl text-2xl mt-2 font-bold" style={{ color: "#ffffff" }}>Backend Development</h2>
+            <div className="skill_item flex items-start justify-evenly">
+              {
+                Rendercolumn(Backend)
+              }
+
+            </div>
           </motion.div>
           <motion.div className="Skill w-full h-full border-2 border-slate-400 rounded-lg"
             variants={item} viewport={{ once: "true" }} id="tools">
-              <h2 className="text-center sm:text-3xl text-2xl mt-2 font-bold" style={{color:"#555"}}>Tools/Devops</h2>
-              <div  className="skill_item flex items-start justify-evenly">
-                {
-                  Rendercolumn(Tools)
-                }
-                    
-                    </div>
+            <h2 className="text-center sm:text-3xl text-2xl mt-2 font-bold" style={{ color: "#ffffff" }}>Tools/Devops</h2>
+            <div className="skill_item flex items-start justify-evenly">
+              {
+                Rendercolumn(Tools)
+              }
+
+            </div>
           </motion.div>
 
         </motion.div>
       </section>
 
       <section id="project" className="projects lg:mx-20 mx:10 mt-20 mb-0">
-        <h3 className="text-gray-100 text-4xl mb-5  font-extrabold lg:text-start text-center">Project</h3>
-        <div className="allproject lg:block flex overflow-x-scroll overflow-y-hidden ">
+        <h3 className="text-gray-100 text-4xl mb-5  font-extrabold  text-center">Project</h3>
+        <div className="allproject lg:block flex overflow-x-scroll">
           {
             projectdata.map((data, index) => {
               return (
-                <motion.div key={index} className={index % 2 !== 0 ? 'project flex lg:mx-0 me-5  lg:flex-row-reverse lg:justify-between justify-end flex-col-reverse items-start lg:my-32 ' : 'project flex lg:mx-0 me-5  lg:justify-between  lg:flex-row flex-col-reverse items-start  lg:my-32'}
+                <motion.div key={index} className={index % 2 !== 0 ? 'project flex lg:mx-0 me-5  lg:flex-row-reverse lg:justify-between justify-end flex-col-reverse items-center lg:my-32 ' : 'project flex lg:mx-0 me-5  lg:justify-between justify-end lg:flex-row flex-col-reverse items-center  lg:my-32'}
                   initial={{
                     opacity: 0,
                     y: 80
@@ -251,7 +285,7 @@ export default function Home() {
                     <p className="mb-5 sm:text-lg text-justify">
                       {data.content}
                     </p>
-                    <div className="tag mb-3.5  ">
+                    <div className="tag mb-3.5">
                       {
                         data.stack.map((stack, subindex) => {
                           return (
@@ -267,7 +301,13 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="img mb-5 sm:mx-10 mx-7  lg:h-1/2 lg:w-1/2 w-9/12">
-                    <Image className="rounded-3xl" src={data.img} alt="proj1..." height={0} width={0} />
+                    <Image
+                      className="rounded-3xl w-[300px] h-[250px] lg:w-[400px] lg:h-[300px]"
+                      src={data.img}
+                      alt="proj..."
+                      height={0}
+                      width={0}
+                    />
                   </div>
                 </motion.div>
               )

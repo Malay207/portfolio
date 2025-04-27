@@ -11,11 +11,36 @@
 }
 
 body {
-
   color: rgba(255, 255, 255, 0.87);
-  background:hsl(219, 48%, 8%)
-
+  background: url("./bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
   /* className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert" */
+}
+
+.cursur-dot {
+  width: 5px;
+  height: 5px;
+  background-color: white;
+}
+
+.cursur-outline {
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.753);
+}
+
+.cursur-dot,
+.cursur-outline {
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
 body p {
@@ -23,7 +48,7 @@ body p {
 }
 
 .header {
-  background-color:hsl(219, 48%, 8%);
+  background-color: #0e2a47;
 }
 
 .navbar {
@@ -75,7 +100,7 @@ body p {
 }
 
 .hero-profileimage {
-  
+
   background-image: url('./profileimg.jpeg');
   background-position: 50%;
   background-repeat: no-repeat;
@@ -89,7 +114,7 @@ body p {
 }
 
 .projects .tag span {
-  box-shadow: rgb(55, 54, 50) 0px -0.5rem 0px inset;
+  box-shadow: rgba(27, 26, 26, 0.788) 0px -0.5rem 0px inset;
   transition: box-shadow 0.3s ease-out 0s;
 }
 
@@ -190,19 +215,21 @@ body p {
     height: 15rem;
   }
 }
+
 @media only screen and (min-width:400px) {
   .hero-profileimage {
 
-  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  -webkit-animation: morph 8s ease-in-out infinite;
-  animation: morph 8s ease-in-out infinite;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    -webkit-animation: morph 8s ease-in-out infinite;
+    animation: morph 8s ease-in-out infinite;
   }
-  
+
 }
+
 @media only screen and (max-width:400px) {
-  .skill_item{
+  .skill_item {
     flex-direction: column;
     align-items: center;
   }
-  
+
 }
